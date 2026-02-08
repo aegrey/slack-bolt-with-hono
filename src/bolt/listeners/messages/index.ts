@@ -11,7 +11,7 @@ const register = (app: App) => {
       );
       if (!matches) return;
 
-      const rewritten = matches.map((url) =>
+      const rewritten = matches.map((url: string) =>
         url.replace(/instagram\.com/gi, "uuinstagram.com")
       );
       await say(rewritten.join("\n"));

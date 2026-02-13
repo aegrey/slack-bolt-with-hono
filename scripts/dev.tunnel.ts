@@ -91,19 +91,13 @@ interface ManifestUpdateResult {
 }
 
 interface SlackManifest {
-  features: {
-    slash_commands: Array<{ url: string }>;
-  };
   settings: {
     event_subscriptions: { request_url: string };
-    interactivity: { request_url: string };
   };
 }
 
 const updateManifestUrls = (manifest: SlackManifest, newUrl: string): void => {
-  manifest.features.slash_commands[0].url = newUrl;
   manifest.settings.event_subscriptions.request_url = newUrl;
-  manifest.settings.interactivity.request_url = newUrl;
 };
 
 const updateManifest = async (

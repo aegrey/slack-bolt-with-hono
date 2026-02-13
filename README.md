@@ -1,16 +1,10 @@
-# Slack Bolt with Hono Template
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?demo-description=This%20is%20a%20generic%20Bolt%20for%20JavaScript%20(TypeScript)%20template%20app%20used%20to%20build%20out%20Slack%20apps%20with%20Hono&demo-image=%2F%2Fimages.ctfassets.net%2Fe5382hct74si%2F4mFKp6eACjCbvFPkDznhWC%2F2bfc6348e41905140d09678db0d90e26%2FFrame__1_.png&demo-title=Slack%20Bolt%20with%20Hono&demo-url=https%3A%2F%2Fgithub.com%2Fvercel-partner-solutions%2Fslack-bolt-with-hono&env=SLACK_SIGNING_SECRET%2CSLACK_BOT_TOKEN&envDescription=These%20environment%20variables%20are%20required%20to%20deploy%20your%20Slack%20app%20to%20Vercel&envLink=https%3A%2F%2Fapi.slack.com%2Fapps&from=templates&project-name=Slack%20Bolt%20with%20Hono&project-names=Comma%20separated%20list%20of%20project%20names%2Cto%20match%20the%20root-directories&repository-name=slack-bolt-with-hono&repository-url=https%3A%2F%2Fgithub.com%2Fvercel-partner-solutions%2Fslack-bolt-with-hono&root-directories=List%20of%20directory%20paths%20for%20the%20directories%20to%20clone%20into%20projects&skippable-integrations=1&teamSlug=vercel-partnerships)
-
-This is a generic Bolt for JavaScript (TypeScript) template app used to build Slack apps with Hono
-
-Before getting started, make sure you have a development workspace where you have permissions to install apps. You can use a [developer sandbox](https://api.slack.com/developer-program) or [create a workspace](https://slack.com/create)
+# Slack Webhook for Instagram Previews - Bolt with Hono 
 
 ## Installation
 
 ### Clone and install dependencies
 ```bash
-git clone https://github.com/vercel-partner-solutions/slack-bolt-with-hono.git && cd slack-bolt-with-hono && pnpm install
+git clone https://github.com/aegrey/slack-bolt-with-hono.git && cd slack-bolt-with-hono && pnpm install
 ```
 
 ### Create a Slack App
@@ -56,8 +50,9 @@ git clone https://github.com/vercel-partner-solutions/slack-bolt-with-hono.git &
 6. Click save and you will be prompted to verify the URL
 7. Open your Slack workspace and add your app to any channel
     - _Note_: Make sure you add the production app, not the local app we setup earlier
-8. Send `hello` and your app will respond with `world!`
 9. Your app will now automatically build and deploy whenever you commit to your repo. More information [here](https://vercel.com/docs/git)
+10. Turn the app on for your org and it will listen for links to IG and replacr
+the domain with uuinstagram
 
 
 ## Project Structure
@@ -72,7 +67,7 @@ This is the Bolt app entry. It initializes `@vercel/slack-bolt`'s `VercelReceive
 
 ### [`src/bolt/listeners`](./src/bolt/listeners)
 
-Every incoming request is routed to a "listener". Inside this directory, we group each listener by Slack Platform feature, e.g. [`messages`](./src/bolt/listeners/messages) for message events
+Every incoming request is routed to a "listener". Inside this directory only one listener is active, [`messages`](./src/bolt/listeners/messages) ssage events
 
 ### Server: [`src/index.ts`](./src/index.ts)
 
